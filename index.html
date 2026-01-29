@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive English Test - 20 Verbs</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #e9ecef; padding: 20px; color: #2c3e50; }
+        .test-sheet { max-width: 800px; background: white; margin: 0 auto; padding: 40px; border: 1px solid #ccc; box-shadow: 10px 10px 0px #34495e; }
+        .header { border-bottom: 2px solid #000; margin-bottom: 20px; }
+        .student-info { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; }
+        .question { margin: 15px 0; padding: 10px; border-radius: 5px; }
+        .options { margin-left: 20px; display: flex; gap: 20px; }
+        button { background: none; border: 1px solid #34495e; padding: 5px 15px; cursor: pointer; font-family: inherit; font-size: 16px; border-radius: 3px; }
+        button:hover { background: #f0f0f0; }
+        button.correct { background-color: #2ecc71 !important; color: white; border-color: #27ae60; }
+        button.wrong { background-color: #e74c3c !important; color: white; border-color: #c0392b; }
+        h3 { border-left: 5px solid #34495e; padding-left: 10px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+<div class="test-sheet">
+    <div class="header">
+        <h1 style="margin:0;">ENGLISH TEST – 20 COMMON VERBS</h1>
+        <p>Present & Past Simple</p>
+    </div>
+
+    <div class="student-info">
+        <span>Name:________________________</span>
+        <span>Grade: ________</span>
+        <span>Date: ________</span>
+    </div>
+
+    <h3>Select the correct option.</h3>
+
+    <div id="quiz-container">
+        <div class="question" data-ans="a">1) I ___ tired. <div class="options"><button onclick="check(this, 'a')">a) am</button><button onclick="check(this, 'b')">b) is</button></div></div>
+        <div class="question" data-ans="b">2) She ___ a dog. <div class="options"><button onclick="check(this, 'a')">a) have</button><button onclick="check(this, 'b')">b) has</button></div></div>
+        <div class="question" data-ans="a">3) I ___ my homework. <div class="options"><button onclick="check(this, 'a')">a) do</button><button onclick="check(this, 'b')">b) did</button></div></div>
+        <div class="question" data-ans="b">4) They ___ to school last week. <div class="options"><button onclick="check(this, 'a')">a) go</button><button onclick="check(this, 'b')">b) went</button></div></div>
+        <div class="question" data-ans="b">5) He ___ up early. <div class="options"><button onclick="check(this, 'a')">a) get</button><button onclick="check(this, 'b')">b) gets</button></div></div>
+        <div class="question" data-ans="a">6) We ___ English in class. <div class="options"><button onclick="check(this, 'a')">a) use</button><button onclick="check(this, 'b')">b) uses</button></div></div>
+        <div class="question" data-ans="a">7) They ___ the keys. <div class="options"><button onclick="check(this, 'a')">a) find</button><button onclick="check(this, 'b')">b) finds</button></div></div>
+        <div class="question" data-ans="b">8) She ___ me help. <div class="options"><button onclick="check(this, 'a')">a) give</button><button onclick="check(this, 'b')">b) gives</button></div></div>
+        <div class="question" data-ans="b">9) She ___ lunch at home. <div class="options"><button onclick="check(this, 'a')">a) make</button><button onclick="check(this, 'b')">b) makes</button></div></div>
+        <div class="question" data-ans="a">10) I ___ the answer. <div class="options"><button onclick="check(this, 'a')">a) know</button><button onclick="check(this, 'b')">b) knew</button></div></div>
+        <div class="question" data-ans="a">11) He ___ the bus to school yesterday. <div class="options"><button onclick="check(this, 'a')">a) took</button><button onclick="check(this, 'b')">b) takes</button></div></div>
+        <div class="question" data-ans="a">12) We ___ a bird in the tree. <div class="options"><button onclick="check(this, 'a')">a) see</button><button onclick="check(this, 'b')">b) sees</button></div></div>
+        <div class="question" data-ans="b">13) She ___ home late. <div class="options"><button onclick="check(this, 'a')">a) come</button><button onclick="check(this, 'b')">b) comes</button></div></div>
+        <div class="question" data-ans="b">14) He ___ the truth. <div class="options"><button onclick="check(this, 'a')">a) tell</button><button onclick="check(this, 'b')">b) tells</button></div></div>
+        <div class="question" data-ans="a">15) I ___ my mother every day. <div class="options"><button onclick="check(this, 'a')">a) call</button><button onclick="check(this, 'b')">b) calls</button></div></div>
+        <div class="question" data-ans="a">16) I ___ so. <div class="options"><button onclick="check(this, 'a')">a) think</button><button onclick="check(this, 'b')">b) thinks</button></div></div>
+
+        <h3>Circle the correct sentence:</h3>
+
+        <div class="question" data-ans="a">17) <div class="options"><button onclick="check(this, 'a')">a) I want water.</button><button onclick="check(this, 'b')">b) I wants water.</button></div></div>
+        <div class="question" data-ans="b">18) <div class="options"><button onclick="check(this, 'a')">a) He work here.</button><button onclick="check(this, 'b')">b) He works here.</button></div></div>
+        <div class="question" data-ans="b">19) <div class="options"><button onclick="check(this, 'a')">a) She try hard.</button><button onclick="check(this, 'b')">b) She tries hard.</button></div></div>
+        <div class="question" data-ans="b">20) <div class="options"><button onclick="check(this, 'a')">a) They is happy.</button><button onclick="check(this, 'b')">b) They are happy.</button></div></div>
+    </div>
+</div>
+
+<script>
+    function playUglySound() {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth'; 
+        osc.frequency.setValueAtTime(110, audioCtx.currentTime); // Frecuencia baja y molesta
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    function check(btn, choice) {
+        const questionDiv = btn.closest('.question');
+        const correctAnswer = questionDiv.getAttribute('data-ans');
+        const buttons = questionDiv.querySelectorAll('button');
+
+        // Deshabilitar botones para evitar múltiples clics
+        buttons.forEach(b => b.disabled = true);
+
+        if (choice === correctAnswer) {
+            btn.classList.add('correct');
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#2ecc71', '#f1c40f', '#3498db']
+            });
+        } else {
+            btn.classList.add('wrong');
+            playUglySound();
+        }
+    }
+</script>
+
+</body>
+</html>
